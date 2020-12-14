@@ -1,4 +1,4 @@
-<?php include 'datebase.php'; ?>
+<?php include 'books/datebase.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -39,7 +39,8 @@
                   <?php
                     if(isset($_POST['login'])){
                         $uname = $_POST['username'];
-                        $pass = $_POST['passwrd'];
+                        $pass = $_POST['password'];
+                        require_once 'books/datebase.php';
                         
                         if($uname == $this->user_name && $pass == $this->user_password){
                             $userid = $this->user_id;

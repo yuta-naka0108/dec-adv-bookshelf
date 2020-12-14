@@ -1,4 +1,4 @@
-<?php include 'books.php' ?>
+<?php include 'books/books.php' ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -40,14 +40,14 @@
                   </form>
                   <?php
                     if(isset($_POST['create'])){
-                        require_once 'datebase.php';
+                        require_once 'books/datebase.php';
                         $username = $_POST['username'];
                         $email = $_POST['email'];
                         $tel = $_POST['tel'];
                         $password = $_POST['password'];
                         $confirm = $_POST['confirm'];
 
-                        $sql = "INSERT INTO `users`(user_id, user_name, user_email, user_tel, user_password) VALUES(`$username`, `$email`, `$tel`, `$password`)";
+                        $sql = "INSERT INTO `user`(user_id, user_name, user_email, user_tel, user_password) VALUES('$username', '$email', '$tel', '$password')";
 
                         header("Location:loginpage.php");
                     }

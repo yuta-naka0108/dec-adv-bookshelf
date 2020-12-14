@@ -1,18 +1,16 @@
-<?php include 'books/books.php' ?>
 <!doctype html>
 <html lang="en">
   <head>
-    <title>Add Books</title>
+    <title>About Us</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <script src="https://kit.fontawesome.com/eb83b1af77.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-  <header>
+  <header class="bg-success">
           <ul class="navbar-nav">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
@@ -24,41 +22,27 @@
                   <a href="contact.php">CONTACT</a>
               </li>
               <li class="nav-item">
-                  <a href="config.php">CONFIG</a>
+                  <a href="config.php?user_id=<?php $userid = $_GET['user_id'];
+                  echo $userid; ?>">CONFIG</a>
               </li>
           </ul>
-      </header>
-      <div class="container">
-          <div class="row">
-              <div class="col-3"></div>
-              <div class="col-6">
-                  <form action="" method="post">
-                      <div class="form-body">
-                          <div class="form-group">
-                              <input type="text" name="title" placeholder="Title" class="form-control">
-                              <input type="text" name="author" placeholder="Author" class="form-control">
-                              <input type="text" name="synopsis" placeholder="Synopsis" class="form-control">
-                          </div>
-                          <div class="form-group">
-                              <input type="submit" name="addnew" value="Add New" class="form-control btn btn-prymary">
-                          </div>
-                      </div>
-                  </form>
-
-                  <?php
-                    if(isset($_POST['addnew'])){
-                        $BookTitle = $_POST['title'];
-                        $BookAuthor = $_POST['author'];
-                        $BookSynopsis = $_POST['synopsis'];
-
-                        $bookObj->addBooks($BookTitle, $BookAuthor, $BookSynopsis);
-                    }
-                  ?>
-                 
-              </div>
-              <div class="col-3"></div>
-          </div>
-      </div>
+    </header>
+  <div class="container">
+    <div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="display-4">About Us</h1>
+                </div>
+                <div class="card-group font-weight-bolder">
+                    We are ... Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae sequi eum voluptates placeat dolor inventore voluptas. Sequi delectus perferendis amet vitae laudantium quaerat, soluta dolores dignissimos iure eius totam similique.
+                </div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+  </div>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

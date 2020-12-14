@@ -38,7 +38,33 @@
                     </div>
                     <div class="card-body">
                         <form action="" method="post">
-                            <label for=""></label>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <label for="fname">First Name</label>
+                                    <input type="text" name="fname" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="lname">Last Name</label>
+                                    <input type="text" name="lname" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">E-Mail</label>
+                                    <input type="email" name="email" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="tel">Your Contact Number</label>
+                                    <input type="number" name="tel" class="form-control">
+                                </div>
+                                <div class="form-group">
+                                    <label for="comment">Comment</label>
+                                    <input type="textarea" name="comment" id="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="form-body">
+                                <div class="form-group">
+                                    <input type="submit" value="Submit" class="form-control btn btn-primary">
+                                </div>
+                            </div>                         
                         </form>
                     </div>
                 </div>

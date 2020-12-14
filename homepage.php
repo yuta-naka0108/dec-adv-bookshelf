@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      <header class="bg-success">
+      <header class="bg-danger">
           <ul class="navbar-nav">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
@@ -55,11 +55,21 @@
                       </tbody>
                   </table>
               </div>
-              <div class="col-2">
+              <div class="col-2 bg-warning">
                   <form action="" method="post">
-                      <input type="text" name="username" placeholder="Username" class="form-control">
-                      <input type="password" name="password" placeholder="Password" class="form-control">
-                      <input type="submit" name="add" value="Add New Books" class="form-control btn btn-primary">
+                      <div class="form-body">
+                          <div class="form-group">
+                              <input type="text" name="username" placeholder="Username" class="form-control">
+                          </div>
+                          <div class="form-group">
+                               <input type="password" name="password" placeholder="Password" class="form-control">
+                          </div>
+                      </div>
+                      <div class="form-body">
+                          <div class="form-group">
+                              <input type="submit" name="add" value="Add New Books" class="form-control btn btn-primary">
+                          </div>
+                      </div>
                   </form>
               </div>
 

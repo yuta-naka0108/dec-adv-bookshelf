@@ -14,6 +14,7 @@
             if($this->conn->connect_error){
                 echo "error in connecting to database";
             }
+            echo "success";
 
             return $this->conn;
         }
