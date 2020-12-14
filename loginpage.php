@@ -27,7 +27,7 @@
                           <input type="password" name="password" placeholder="Password" class="form-control">
                       </div>
                       <div class="form-group">
-                          <input type="submit" name="login" value="Login" class="form-control btn btn-prymary">
+                          <input type="submit" name="login" value="Login" class="form-control btn btn-primary">
                       </div>
                     </div>
                     <div class="form-body">
@@ -40,15 +40,24 @@
                     if(isset($_POST['login'])){
                         $uname = $_POST['username'];
                         $pass = $_POST['password'];
-                        require_once 'books/datebase.php';
-                        
-                        if($uname == $this->user_name && $pass == $this->user_password){
+                        $sql = "SELECT user_name, user_password FROM `user`";
+
+                        if($result-> $num_rows > 0){
+                            $row = $result->fetch_assoc();
+                            $username = $row["user_name"];
+                            $password = $row["user_password"];
+                            if($uname == $username && $pass == $password){
                             $userid = $this->user_id;
-                            header("Location:homepage.php?user_id=$userid");
+                            header("Location:homepage.php?user_id=$user_id");
+                            
+                           }else{
+                             echo "Your UserName or Password is wrong";
+                            }
+                    
                         }
-                    }else{
-                        echo "Your UserName or Password is wrong";
                     }
+                        
+                        
                   ?>
                   
               </div>
