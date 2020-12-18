@@ -1,3 +1,7 @@
+<?php 
+    include 'books/datebase.php';
+    echo $_SESSION['login_id'];
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,7 +15,7 @@
   </head>
   <body>
   <header>
-          <ul class="navbar-nav">
+        <ul class="navbar-nav navbar-light bg-dark">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
               </li>
@@ -24,27 +28,25 @@
               <li class="nav-item">
                   <a href="config.php">CONFIG</a>
               </li>
-            </ul>
-    </header>
+        </ul>
+  </header>
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
-                <ul>
+            <div class="col-2 bg-info"></div>
+            <div class="col-8 bg-warning">
+                <ul class="mt-5">
                     <li>
-                        <a href="edit.php?user_id=<?php $userid = $GET['user_id'];
-                        echo $userid ?>">Edit My Account</a>
+                        <a href="edit.php?user_id=<?php $userid =$_SESSION['login_id'];
+                        echo $userid ?>" class="h2">Edit My Account</a>
                     </li>
-                    <li>
-                        <a href="#">Edit My Bookshelf</a>
+                    <li class="mt-5">
+                        <a href="#" class="h2">Edit My Bookshelf</a>
                     </li>
-                    <li>
-                        <a href=""></a>
-                    </li>
+                   
                 </ul>
             </div>
-            <div class="col-2"></div>
+            <div class="col-2 bg-info"></div>
         </div>
     </div>
 

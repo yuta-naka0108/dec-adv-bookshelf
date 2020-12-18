@@ -18,7 +18,7 @@
               <div class="col-3"></div>
               <div class="col-6">
                   <h1 class="display-4">YOUR ONLINE BOOKSHELF</h1>
-                  <form action="" method="post">
+                  <form action="action.php" method="post">
                     <div class="form-body">
                       <div class="form-group">
                           <input type="text" name="username" placeholder="Username" class="form-control">
@@ -37,25 +37,7 @@
                     </div>
                   </form>
                   <?php
-                    if(isset($_POST['login'])){
-                        $uname = $_POST['username'];
-                        $pass = $_POST['password'];
-                        $sql = "SELECT user_name, user_password FROM `user`";
-
-                        if($result-> $num_rows > 0){
-                            $row = $result->fetch_assoc();
-                            $username = $row["user_name"];
-                            $password = $row["user_password"];
-                            if($uname == $username && $pass == $password){
-                            $userid = $this->user_id;
-                            header("Location:homepage.php?user_id=$user_id");
-                            
-                           }else{
-                             echo "Your UserName or Password is wrong";
-                            }
                     
-                        }
-                    }
                         
                         
                   ?>

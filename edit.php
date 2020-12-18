@@ -1,4 +1,4 @@
-<?php include 'books/books.php' ?>
+<?php include 'action.php' ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,7 +12,7 @@
   </head>
   <body>
         <header>
-          <ul class="navbar-nav">
+          <ul class="navbar-nav bg-dark">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
               </li>
@@ -32,7 +32,7 @@
           <div class="row">
               <div class="col-2"></div>
               <div class="col-8">
-                  <form action="" method="post">
+                  <form action="action.php" method="post">
                       <div class="form-body">
                           <div class="form-group">
                               <input type="text" name="username" placeholder="New Username" class="form-control">
@@ -49,33 +49,16 @@
                       </div>
                       <div class="form-body">
                           <div class="form-group">
-                              <input type="password" name="password" placeholder="Curent Password" class="form-control">
+                              <input type="password" name="password" placeholder="Current Password" class="form-control">
                           </div>
                       </div>
                       <div class="form-body">
                           <div class="form-group">
-                              <input type="submit" value="Submit" name="submit" class="form-control btn btn-primary">
+                              <input type="submit" value="Submit" name="edit" class="form-control btn btn-primary">
                           </div>
                       </div>
                   </form>
-                  <?php
-                    if(isset($_POST['submit'])){
-                        require_once 'datebase.php';
-                        $password = $_POST['password'];
-                        $sql = "SELECT user_password FROM `users`";
-                        $user_password = $this['user_password'];
-                        if($password == $user_password){
-                            $newUsername = $_POST['username'];
-                            $newEmail = $_POST['email'];
-                            $newTel = $_POST['tel'];
-                            $newPassword = $_POST['newpassword'];
-                            $bookObj->Edituser($newUsername, $newEmail, $newTel, $newPassword);
-                            
-                        }
-                    }else{
-                        echo "Your Password Is Not Correct";
-                    }
-                  ?>
+                 
               </div>
               <div class="col-2"></div>
           </div>

@@ -13,7 +13,7 @@
   </head>
   <body>
   <header>
-          <ul class="navbar-nav">
+          <ul class="navbar-nav bg-dark">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
               </li>
@@ -28,32 +28,24 @@
               </li>
           </ul>
       </header>
-      <div class="container">
+      <div class="container-fluid">
           <div class="row">
               <div class="col-3"></div>
               <div class="col-6">
-                  <form action="" method="post">
+                  <form action="action.php" method="post">
                       <div class="form-body">
-                          <div class="form-group">
+                          <div class="form-group pt-5">
                               <input type="text" name="title" placeholder="Title" class="form-control">
                               <input type="text" name="author" placeholder="Author" class="form-control">
                               <input type="text" name="synopsis" placeholder="Synopsis" class="form-control">
                           </div>
-                          <div class="form-group">
-                              <input type="submit" name="addnew" value="Add New" class="form-control btn btn-prymary">
+                          <div class="form-group pt-3">
+                              <input type="submit" name="addnew" value="Add New" class="form-control btn btn-primary">
                           </div>
                       </div>
                   </form>
 
-                  <?php
-                    if(isset($_POST['addnew'])){
-                        $BookTitle = $_POST['title'];
-                        $BookAuthor = $_POST['author'];
-                        $BookSynopsis = $_POST['synopsis'];
-
-                        $bookObj->addBooks($BookTitle, $BookAuthor, $BookSynopsis);
-                    }
-                  ?>
+                  
                  
               </div>
               <div class="col-3"></div>

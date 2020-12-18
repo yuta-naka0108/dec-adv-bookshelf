@@ -1,5 +1,6 @@
 <?php
     include 'action.php';
+    
 ?>
 
 <!doctype html>
@@ -15,8 +16,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-      <header class="bg-danger">
-          <ul class="navbar-nav">
+      <header>
+          <ul class="navbar-nav bg-dark">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
               </li>
@@ -27,15 +28,16 @@
                   <a href="contact.php">CONTACT</a>
               </li>
               <li class="nav-item">
-                  <a href="config.php?user_id=<?php $userid = $_GET['user_id'];
+                  <a href="config.php?user_id=<?php $userid=$_SESSION['login_id'];
                   echo $userid; ?>">CONFIG</a>
               </li>
           </ul>
       </header>
-      <div class="container">
+      <div class="container-fluid">
           <div class="row">
-              <div class="col-8">
-                  <table class="table table-bordered bg-success">
+              <div class="col-2 bg-warning"></div>
+              <div class="col-8 p-0">
+                  <table class="table table-bordered border-collaps bg-success">
                       <thead>
                           <th>Book Title</th>
                           <th>Author</th>                         
@@ -46,7 +48,8 @@
                           ?>
                           <tr>
                               <td><?php echo $books['book_title']; ?></td>
-                              <td><?php echo $books['book_author']; ?></td>
+                              <td><?php echo $books['author']; ?></td>
+                              <td colspan="2"><?php echo $books['synopsis']; ?></td>
                           </tr>
 
                           <?php
@@ -73,28 +76,27 @@
                   </form>
               </div>
 
-              <?php
-                if(isset($_POST['add'])){
-                    require_once 'datebase.php';
-                    $username = $_POST['username'];
-                    $password = $_POST['password'];
-                    $sql = "SELECT user_id, user_name, user_password FROM `user`";
-                    $result = $conn->query();
-                    if($result-> $num_rows > 0){
-                        $row = $result->fetch_assoc();
-                        $userid = $row['user_id'];
-                        $user_name = $row['user_name'];
-                        $user_password = $row['user_password'];
-                        $_SESSION['login_id'] = $userid; 
-                    }if($username == $user_name && $password == $user_password){
-                        header("Location:addbooks.php");
-                    }else{
-                        echo "Error";
-                    }
-                }
-              ?>
+             
           </div>
       </div>
+
+      <footer class="bg-dark">
+          <ul class="float-left">
+              <li class="nav-item active">
+                  <a href="homepage.php">HOME</a>
+              </li>
+              <li class="nav-item">
+                   <a href="about.php">ABOUT US</a>
+              </li>
+              <li class="nav-item">
+                  <a href="contact.php">CONTACT</a>
+              </li>
+              <li class="nav-item">
+                  <a href="config.php?user_id=<?php $userid=$_SESSION['login_id'];
+                  echo $userid; ?>">CONFIG</a>
+              </li>
+          </ul>
+      </footer>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
