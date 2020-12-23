@@ -10,8 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
   <body>
-    <header class="bg-success">
-          <ul class="navbar-nav">
+    <header>
+          <ul class="navbar-nav bg-dark">
               <li class="nav-item active">
                   <a href="homepage.php">HOME</a>
               </li>
@@ -25,15 +25,16 @@
                   <a href="config.php?user_id=<?php $userid = $_GET['user_id'];
                   echo $userid; ?>">CONFIG</a>
               </li>
+              <a href="loginpage.php" class="btn btn-outline-danger ml-auto mb-3">Log Out</a>
           </ul>
     </header>
 
     <div class="container">
         <div class="row">
-            <div class="col-2"></div>
-            <div class="col-8">
+            <div class="col-1"></div>
+            <div class="col-10">
                 <div class="card">
-                    <div class="card-header">
+                    <div class="card-header bg-info">
                         <h2>Contact Us</h2>
                     </div>
                     <div class="card-body">
@@ -69,9 +70,33 @@
                     </div>
                 </div>
             </div>
-            <div class="col-2"></div>
+            <div class="col-1"></div>
         </div>
     </div>
+    <footer>
+          <div class="container-fluid relative-bottom">
+              <div class="row">
+                  <div class="col-12 bg-dark">
+                        <ul class="navbar-nav float-left pl-3">
+                            <li class="nav-item active">
+                                <a href="homepage.php">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about.php">ABOUT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.php">CONTACT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="config.php?user_id=<?php $userid=$_SESSION['login_id'];
+                                echo $userid; ?>">CONFIG</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              
+            </div>   
+      </footer>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

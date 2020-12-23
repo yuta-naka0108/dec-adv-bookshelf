@@ -6,7 +6,8 @@ if(isset($_POST['addnew'])){
     $BookTitle = $_POST['title'];
     $BookAuthor = $_POST['author'];
     $BookSynopsis = $_POST['synopsis'];
-    $bookObj->addBooks($BookTitle, $BookAuthor, $BookSynopsis);
+    $userid = $_SESSION['login_id'];
+    $bookObj->addBooks($BookTitle, $BookAuthor, $BookSynopsis, $userid);
 }
 
 if(isset($_POST['login'])){
@@ -47,6 +48,36 @@ if(isset($_POST['edit'])){
     $bookObj->Edituser($newUsername, $newEmail, $newTel, $newPassword, $password);
     
 }
+
+if(isset($_POST['create'])){
+    $newUsername = $_POST['username'];
+    $newEmail = $_POST['email'];
+    $newTel = $_POST['tel'];
+    $newPassword = $_POST['password'];
+    $confirm = $_POST['confirm'];
+
+    if($newPassword == $confirm){
+        $bookObj->NewUser($newUsername,$newEmail,$newTel,$newPassword);
+    }else{
+        echo "password dont match";
+    }
+
+    // $bookObj->NewUser($newUsername, $newEmail, $newTel, $newPassword, $confirm);
+}elseif(isset($_POST['delete'])){
+    $loggedInUser = $bookObj->getOneUser($_SESSION['login_id']);
+    $password = $_POST['password'];
+    if($password == $loggedInUser['user_password']){
+        $bookObj->DeeleteAccount($_SESSION['login_id']);
+    }else{
+        echo "password odnt match";
+    }
+
+
+    
+
+}
+
+
 
 ?>
  

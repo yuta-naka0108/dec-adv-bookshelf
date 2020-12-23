@@ -1,4 +1,4 @@
-<?php include 'books/books.php' ?>
+<?php include 'action.php' ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -17,8 +17,9 @@
               <div class="col-2"></div>
               <div class="col-8">
                   <form action="" method="post">
-                      <div class="form-body">
-                          <div class="form-group">
+                      <div class="form-body pt-5">
+                          <h1 class="text-center">WELCOME A NEW USER</h1>
+                          <div class="form-group pt-2">
                               <input type="text" name="username" placeholder="UserName" class="form-control">
                           </div>
                           <div class="form-group">
@@ -38,20 +39,7 @@
                           </div>
                       </div>
                   </form>
-                  <?php
-                    if(isset($_POST['create'])){
-                        require_once 'books/datebase.php';
-                        $username = $_POST['username'];
-                        $email = $_POST['email'];
-                        $tel = $_POST['tel'];
-                        $password = $_POST['password'];
-                        $confirm = $_POST['confirm'];
-
-                        $sql = "INSERT INTO `user`(user_id, user_name, user_email, user_tel, user_password) VALUES('$username', '$email', '$tel', '$password')";
-
-                        header("Location:loginpage.php");
-                    }
-                  ?>
+                 
               </div>
               <div class="col-2"></div>
           </div>

@@ -17,9 +17,9 @@
           <div class="row">
               <div class="col-3"></div>
               <div class="col-6">
-                  <h1 class="display-4">YOUR ONLINE BOOKSHELF</h1>
+                  <h1 class="display-4 pt-5">YOUR ONLINE BOOKSHELF</h1>
                   <form action="action.php" method="post">
-                    <div class="form-body">
+                    <div class="form-body pt-2">
                       <div class="form-group">
                           <input type="text" name="username" placeholder="Username" class="form-control">
                       </div>

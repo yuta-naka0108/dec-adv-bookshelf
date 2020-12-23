@@ -25,6 +25,7 @@
               <li class="nav-item">
                   <a href="config.php">CONFIG</a>
               </li>
+              <a href="loginpage.php" class="btn btn-outline-danger ml-auto mb-3">Log Out</a>
           </ul>
       </header>
 
@@ -33,7 +34,8 @@
               <div class="col-2"></div>
               <div class="col-8">
                   <form action="action.php" method="post">
-                      <div class="form-body">
+                      <div class="form-body mt-3">
+                          <h3>Edit Your Information</h3>
                           <div class="form-group">
                               <input type="text" name="username" placeholder="New Username" class="form-control">
                           </div>
@@ -63,6 +65,30 @@
               <div class="col-2"></div>
           </div>
       </div>
+      <footer>
+          <div class="container-fluid fixed-bottom">
+              <div class="row">
+                  <div class="col-12 bg-dark">
+                        <ul class="navbar-nav float-left pl-3">
+                            <li class="nav-item active">
+                                <a href="homepage.php">HOME</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="about.php">ABOUT US</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="contact.php">CONTACT</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="config.php?user_id=<?php $userid=$_SESSION['login_id'];
+                                echo $userid; ?>">CONFIG</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+              
+            </div>   
+      </footer>
       
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

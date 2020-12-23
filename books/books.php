@@ -3,8 +3,8 @@
     include 'books/datebase.php';
 
     class book extends BookDatebase{
-        public function addBooks($BookTitle, $BookAuthor, $BookSynopsis){
-             $sql = "INSERT INTO books(book_title, author, synopsis)VALUES('$BookTitle', '$BookAuthor', '$BookSynopsis')";
+        public function addBooks($BookTitle, $BookAuthor, $BookSynopsis, $userid){
+             $sql = "INSERT INTO books(book_title, author, synopsis, user_id)VALUES('$BookTitle', '$BookAuthor', '$BookSynopsis', '$userid')";
              $result = $this->conn->query($sql);
              if($result == TRUE){
                  header("Location:homepage.php");
@@ -14,9 +14,11 @@
         }
 
         public function DisplayBooks(){
-            $sql = "SELECT book_title, author, synopsis FROM books";
+             $userid = $_SESSION['login_id'];
+            $sql = "SELECT id, book_title, author, synopsis, user_id FROM books WHERE user_id = '$userid'";
             $result = $this->conn->query($sql);
-
+           
+            
             if($result->num_rows>0){
                 while($book_sh = $result->fetch_assoc()){
                     $booksarray[] = $book_sh;
@@ -78,6 +80,50 @@
             if($result->num_rows == 1){
                 header('location:addbooks.php');
             }
+        }
+
+        public function NewUser($newUsername, $newEmail, $newTel, $newPassword /*$confirm*/){          
+            $sql = "INSERT INTO user (user_name,user_email,user_tel,user_password)VALUES('$newUsername','$newEmail','$newTel','$newPassword')";
+            $result = $this->conn->query($sql);
+
+            if($result==TRUE){
+                header('location:loginpage.php');
+            }else{
+                die($this->conn->error.' error adding new user');
+            }
+        }
+
+        public function DeleteBook($id){
+            $sql = "DELETE FROM books WHERE id = $id";
+            $result = $this->conn->query($sql);
+
+            if($result == true){
+                header('location:homepage.php');
+            }else{
+                echo "somethings wrong";
+            }
+        }
+
+        public function DeeleteAccount($userid){
+            $sql = "DELETE FROM user WHERE user_id = $userid";
+            $result = $this->conn->query($sql);
+
+            if($result == TRUE){
+                header("location:loginpage.php");
+            }else{
+                echo "error";
+            }
+
+        }
+        public function getOneUser($sessionID){
+            $sql = "SELECT * FROM user WHERE user_id = $sessionID";
+            $result = $this->conn->query($sql);
+            if($result == FALSE){
+                echo "no match detected";
+            }else{
+                return $result->fetch_assoc();
+            }
+
         }
 
        
